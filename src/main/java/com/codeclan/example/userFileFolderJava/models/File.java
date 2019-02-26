@@ -15,6 +15,9 @@ public class File {
 		this.folder = folder;
 	}
 
+	public void File(){
+	}
+
 	public long getId() {
 		return id;
 	}
