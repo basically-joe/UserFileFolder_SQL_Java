@@ -21,8 +21,8 @@ public class Folder {
 	@OneToMany(mappedBy = "folder")
 	private List<File> files;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "folder")
+	@ManyToOne
+	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
 	public Folder(String title, User user) {
