@@ -1,14 +1,29 @@
 package com.codeclan.example.userFileFolderJava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "files")
 public class File {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	private String name;
-	private String extension;
-	private int size;
-	private int folder;
 
-	public File(String name, String extension, int size, int folder) {
+	@Column(name = "name")
+	private String name;
+
+	@Column(name = "extension")
+	private String extension;
+
+	@Column(name = "size")
+	private int size;
+
+	@ManyToOne
+	@JoinColumn(name = "folder_id", nullable = false)
+	private Folder folder;
+
+	public File(String name, String extension, int size, Folder folder) {
 		this.name = name;
 		this.extension = extension;
 		this.size = size;
