@@ -1,5 +1,6 @@
 package com.codeclan.example.userFileFolderJava.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Folder {
@@ -9,10 +10,13 @@ public class Folder {
 	private List<File> files;
 	private User user;
 
-	public Folder(String title, List<File> files, User user) {
+	public Folder(String title, User user) {
 		this.title = title;
-		this.files = files;
+		this.files = new ArrayList<>();
 		this.user = user;
+	}
+
+	public Folder() {
 	}
 
 	public long getId() {
