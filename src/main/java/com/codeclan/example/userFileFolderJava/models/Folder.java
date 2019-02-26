@@ -1,13 +1,26 @@
 package com.codeclan.example.userFileFolderJava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "folders")
 public class Folder {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+
+	@Column(name = "title")
 	private String title;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "folder")
 	private List<File> files;
+	
 	private User user;
 
 	public Folder(String title, User user) {
