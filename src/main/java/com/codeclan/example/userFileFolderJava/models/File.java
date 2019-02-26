@@ -65,11 +65,11 @@ public class File {
 		this.size = size;
 	}
 
-	public int getFolder() {
+	public Folder getFolder() {
 		return folder;
 	}
 
-	public void setFolder(int folder) {
+	public void setFolder(Folder folder) {
 		this.folder = folder;
 	}
 }

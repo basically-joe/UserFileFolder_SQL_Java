@@ -20,13 +20,15 @@ public class Folder {
 	@JsonIgnore
 	@OneToMany(mappedBy = "folder")
 	private List<File> files;
-	
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "folder")
 	private User user;
 
 	public Folder(String title, User user) {
 		this.title = title;
-		this.files = new ArrayList<>();
 		this.user = user;
+		this.files = new ArrayList<>();
 	}
 
 	public Folder() {
