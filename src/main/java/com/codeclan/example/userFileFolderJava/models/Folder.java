@@ -12,18 +12,18 @@ public class Folder {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(name = "title")
 	private String title;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "folder")
-	private List<File> files;
-
 	@ManyToOne
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "folder")
+	private List<File> files;
 
 	public Folder(String title, User user) {
 		this.title = title;
@@ -34,11 +34,11 @@ public class Folder {
 	public Folder() {
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -65,4 +65,9 @@ public class Folder {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public void addFiles(File file){
+		this.files.add(file);
+	}
+
 }

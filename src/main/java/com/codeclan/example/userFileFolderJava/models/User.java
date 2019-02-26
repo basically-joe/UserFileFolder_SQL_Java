@@ -12,7 +12,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column(name = "name")
 	private String name;
@@ -26,7 +26,15 @@ public class User {
 		this.folders = new ArrayList<>();
 	}
 
-	public void User(){
+	public User(){
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -45,11 +53,7 @@ public class User {
 		this.folders = folders;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
+	public void addFolder(Folder folder){
+		this.folders.add(folder);
 	}
 }
