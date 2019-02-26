@@ -21,7 +21,7 @@ public class Folder {
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToMany(mappedBy = "folder")
 	private List<File> files;
 
@@ -31,8 +31,8 @@ public class Folder {
 		this.files = new ArrayList<>();
 	}
 
-	public Folder() {
-	}
+public Folder(){
+}
 
 	public Long getId() {
 		return id;
@@ -48,14 +48,6 @@ public class Folder {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public List<File> getFiles() {
-		return files;
-	}
-
-	public void setFiles(List<File> files) {
-		this.files = files;
 	}
 
 	public User getUser() {
