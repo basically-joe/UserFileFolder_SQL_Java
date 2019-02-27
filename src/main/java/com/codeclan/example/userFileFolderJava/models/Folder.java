@@ -21,7 +21,7 @@ public class Folder {
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 
-//	@JsonIgnore
+	@JsonIgnore
 	@OneToMany(mappedBy = "folder")
 	private List<File> files;
 
